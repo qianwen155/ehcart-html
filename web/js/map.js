@@ -112,108 +112,10 @@ const lineSeries = {
   },
 };
 
-const mapChart = echarts.init(document.getElementById('china-map'));
-const mapOption = {
-  title: {
-    text: '地图展示',
-    left: 30,
-    top: 22,
-    textStyle: titleTextStyle
-  },
-  tooltip: {
-    show: true, //不显示提示标签
-    formatter: '{b} {c}', //提示标签格式
-    borderColor: 'rgba(94,161,242,1)',
-    backgroundColor: 'rgba(43,65,92,0.85)',
-    textStyle: {
-      color: '#FEFEFE',
-      fontSize: 12,
-      fontWeight: 'light'
-    },//提示标签字体颜色
-  },
-  visualMap: {
-    left: 20,
-    min: 0,
-    max: 100,
-    inRange: {
-      color: ['#092949', '#183E6C', '#2D64A5', '#3E71B7', '#4392E7', '#87CDFF']
-    },
-    textStyle: {
-      color: '#D1D1D1'
-    },
-    text: ['高', '底'],           // 文本，默认为数值文本
-    calculable: true
-  },
-  series: [{
-    type: 'map',
-    map: 'china',
-    label: {
-      normal: {
-        show: true, //显示省份标签
-        textStyle: {
-          color: "#D1D1D1"
-        } //省份标签字体颜色
-      },
-    },
-    itemStyle: {
-      normal: {
-        borderWidth: .5, //区域边框宽度
-        borderColor: 'rgba(31,107,200,0.4)', //区域边框颜色
-        areaColor: "transform", //区域颜色
-      },
-      emphasis: { //鼠标滑过地图高亮的相关设置
-        label: {
-          show: true,
-          color: "#D1D1D1"
-        },
-        borderWidth: .5,
-        borderColor: 'rgba(31,107,200,1)',
-        areaColor: "#2E6FCB",
-        color: "#D1D1D1"
-      }
-    },
-    data:[
-      {name:'澳门', value: 20},
-      {name:'香港', value: 20},
-      {name:'黑龙江', value: 20},
-      {name:'吉林', value: 20},
-      {name:'辽宁', value: 20},
-      {name:'河北', value: 30},
-      {name:'宁夏', value: 20},
-      {name:'甘肃', value: 20},
-      {name:'云南', value: 20},
-      {name:'贵州', value: 10},
-      {name:'青海', value: 10},
-      {name:'内蒙古', value: 0},
-      {name:'陕西', value: 0},
-      {name:'新疆', value: 0},
-      {name:'西藏', value: 0},
-      {name:'四川', value: 30},
-      {name:'重庆', value: 30},
-      {name:'湖南', value: 30},
-      {name:'广西', value: 30},
-      {name:'北京', value: 50},
-      {name:'天津', value: 50},
-      {name:'安徽', value: 50},
-      {name:'广东', value: 80},
-      {name:'上海', value: 80},
-      {name:'湖北', value: 80},
-      {name:'山东', value: 80},
-      {name:'浙江', value: 80},
-      {name:'福建', value: 80},
-      {name:'河南', value: 50},
-      {name:'江苏', value: 80},
-      {name:'海南', value: 40},
-      {name:'台湾', value: 40},
-      {name:'山西', value: 40},
-      {name:'江西', value: 40},
-    ]
-  }],
-};
-mapChart.setOption(mapOption);
 
 const tableSwiper = new Swiper('#table-swiper', {
-  autoplay: 5000,
+  autoplay: 1000,
+  speed: 1000,
   direction: 'vertical',
   slidesPerView: 'auto',
   loop: true
@@ -429,5 +331,31 @@ const barHOption = {
   ],
 };
 barHChart.setOption(barHOption);
+
+Date.prototype.format = function (fmt) {
+  const days = {
+    0: '日',
+    1: '一',
+    2: '二',
+    3: '三',
+    4: '四',
+    5: '五',
+    6: '六',
+  };
+  let o = {
+    "y+": this.getFullYear, //年
+    "M+": this.getMonth() + 1, //月份
+    "d+": this.getDate(), //日
+    "D": days[this.getDay()], //星期
+    "h+": this.getHours(), //小时
+    "m+": this.getMinutes(), //分
+    "ss": this.getSeconds() //秒
+  };
+  if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+  for (let k in o)
+    if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+  return fmt;
+};
+setInterval("document.getElementById('dateTime').innerHTML = (new Date()).format('yyyy年MM月dd <span>星期D</span> <span>hh:mm:ss</span>');", 1000);
 
 

@@ -203,6 +203,11 @@ const barSmallOption = {
   },
   legend: {
     data: ['标题一', '标题二', '标题三'],
+    selected: {
+      '标题一': true,
+      '标题二': false,
+      '标题三': false,
+    },
     top: 26,
     left: 140,
     itemGap: 14,
@@ -258,7 +263,7 @@ barSmallChart.setOption(barSmallOption);
 
 const pieChart = echarts.init(document.getElementById('pie-echart'));
 const pieOption = {
-  color: ['#3CCE6D', '#f7e02c', '#348AE3', '#D88C26', '#F64949', '#9F34A9'],
+  color: ['#3CCE6D', '#f7e02c', '#D88C26', '#F64949', '#9F34A9', '#348AE3',],
   title: {
     text: '每日拆违状态',
     left: 30,
@@ -294,30 +299,37 @@ const pieOption = {
     {
       type: 'pie',
       center: ['50%', '65%'],
-      radius: ['46%', '60%'],
+      radius: '60%',
+      roseType: 'radius',
       avoidLabelOverlap: false,
-      label: {
-        show: false,
-        position: 'center'
-      },
+      // label: {
+      //   show: false,
+      //   position: 'center'
+      // },
       labelLine: {
-        show: false
+        lineStyle: {
+          color: 'rgba(255, 255, 255, 0.3)'
+        },
+        smooth: 0.2,
+        length: 10,
+        length2: 20
       },
       data: [
-        {value: 335, name: '标题一'},
+        {value: 235, name: '标题一'},
         {value: 310, name: '标题二'},
-        {value: 1234, name: '标题三'},
-        {value: 135, name: '标题四'},
-        {value: 1548, name: '标题五'},
-        {value: 348, name: '标题六'},
-      ]
+        {value: 274, name: '标题三'},
+        {value: 235, name: '标题四'},
+        {value: 300, name: '标题五'},
+        {value: 350, name: '标题六'},
+      ].sort(function (a, b) { return a.value - b.value; })
     }
   ]
 };
 pieChart.setOption(pieOption);
 
 const tableSwiper = new Swiper('#table-swiper', {
-  autoplay: 5000,
+  autoplay: 1000,
+  speed: 1000,
   direction: 'vertical',
   slidesPerView: 'auto',
   loop: true
@@ -681,4 +693,48 @@ const lineSmallOption = {
   ]
 };
 lineSmallChart.setOption(lineSmallOption);
+
+
+let j = 1;
+setInterval(()=>{
+  let option = barSmallChart.getOption();
+  let selected = {};
+  const legendData = barSmallOption.legend.data;
+  for(let i=0;i<legendData.length;i++){    // this.legendData是legend中data的值，上面是写死的值，做自动切换时不要写死
+    selected[legendData[i]] = j === i;
+  }
+  barSmallChart.clear();      // 清空原来的折线图
+  option.legend[0].selected = selected;    //更改legend里的selected
+  barSmallChart.setOption(option);//重绘
+  j += 1;
+  if(j === legendData.length){
+    j = 0;
+  }
+}, 3000);
+
+Date.prototype.format = function (fmt) {
+  const days = {
+    0: '日',
+    1: '一',
+    2: '二',
+    3: '三',
+    4: '四',
+    5: '五',
+    6: '六',
+  };
+  let o = {
+    "y+": this.getFullYear, //年
+    "M+": this.getMonth() + 1, //月份
+    "d+": this.getDate(), //日
+    "D": days[this.getDay()], //星期
+    "h+": this.getHours(), //小时
+    "m+": this.getMinutes(), //分
+    "ss": this.getSeconds() //秒
+  };
+  if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+  for (let k in o)
+    if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+  return fmt;
+};
+setInterval("document.getElementById('dateTime').innerHTML = (new Date()).format('yyyy年MM月dd <span>星期D</span> <span>hh:mm:ss</span>');", 1000);
 
