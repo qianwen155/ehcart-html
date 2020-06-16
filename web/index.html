@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-Type" content="text/html;charset=UTF-8">
+  <meta http-equiv="Content-Language" content="zh-cn"/>
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
+  <title>广信区两违管理系统</title>
+  <link rel="stylesheet" href="./swiper/swiper.min.css">
+  <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<script src="./swiper/echarts.js"></script>
+<header>
+  <div class="header-body">
+    <div class="header-logo">
+      <img src="./image/logo.png" alt="top_logo"/>
+    </div>
+    <div class="header-right">
+      <span>2020年5月29号</span>
+      <span>星期五</span>
+      <span>11：30：23</span>
+      <div class="select-page dropdown">
+        <div class="select dropdown-toggle" id="dropdownPage" data-toggle="dropdown">
+          <span>建房统计</span>
+          <span class="caret"></span>
+        </div>
+        <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dropdownPage">
+          <li role="presentation">
+            <a role="menuitem" tabindex="1">建房统计</a>
+          </li>
+          <li role="presentation">
+            <a role="menuitem" tabindex="-2" href="map.html">违建统计</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+<!--<div class="header-Skeleton"></div>-->
+<div class="title">
+  <img src="image/title.png">
+</div>
+
+<!--content-->
+<div class="content">
+  <div class="up">
+    <div class="center-left">
+      <div class="items">
+        <div class="item">
+          <img src="./image/set_total.svg">
+          <span class="name">两违立案数</span>
+          <div class="line"></div>
+          <span>1000<span>次</span></span>
+        </div>
+        <div class="item">
+          <img src="./image/over_total.svg">
+          <span class="name">两违办结数</span>
+          <div class="line"></div>
+          <span>2000<span>次</span></span>
+        </div>
+        <div class="item">
+          <img src="./image/solving.svg">
+          <span class="name">两违处理中</span>
+          <div class="line"></div>
+          <span>2000<span>次</span></span>
+        </div>
+        <div class="item">
+          <img src="./image/error_area.svg">
+          <span class="name">违建面积</span>
+          <div class="line"></div>
+          <span>2000<span>次</span></span>
+        </div>
+        <div class="item">
+          <img src="./image/solve_area.svg">
+          <span class="name">已拆违面积</span>
+          <div class="line"></div>
+          <span>2000<span>次</span></span>
+        </div>
+      </div>
+      <div class="line-echart">
+        <div id="line-echart" class="tip" style="width: 730px;height: 420px;"></div>
+      </div>
+    </div>
+    <div class="bar-echart">
+      <div id="bar-echart" class="tip" style="width: 730px;height: 580px;"></div>
+    </div>
+    <div class="right">
+      <div class="bar-small-echart">
+        <div id="bar-small-echart" class="tip" style="width: 350px;height: 276px;"></div>
+      </div>
+      <div class="pie-echart">
+        <div id="pie-echart" class="tip" style="width: 350px;height: 276px;"></div>
+      </div>
+    </div>
+  </div>
+  <div class="down">
+    <div class="table">
+      <div class="tip" style="width: 730px; height: 256px;"></div>
+      <div class="name">最新违建立案</div>
+      <div class="swiper-container table-content" id="table-swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div>202003121002</div>
+            <div>标题Test1</div>
+            <div>2020-02-10</div>
+            <div>camel7ues</div>
+            <div>尚湖镇</div>
+          </div>
+          <div class="swiper-slide">
+            <div>202003121002</div>
+            <div>标题Test1</div>
+            <div>2020-02-10</div>
+            <div>camel7ues</div>
+            <div>尚湖镇</div>
+          </div>
+          <div class="swiper-slide">
+            <div>202003121002</div>
+            <div>标题Test1</div>
+            <div>2020-02-10</div>
+            <div>camel7ues</div>
+            <div>尚湖镇</div>
+          </div>
+          <div class="swiper-slide">
+            <div>202003121002</div>
+            <div>标题Test1</div>
+            <div>2020-02-10</div>
+            <div>camel7ues</div>
+            <div>尚湖镇</div>
+          </div>
+          <div class="swiper-slide">
+            <div>202003121002</div>
+            <div>标题Test1</div>
+            <div>2020-02-10</div>
+            <div>camel7ues</div>
+            <div>尚湖镇</div>
+          </div>
+          <div class="swiper-slide">
+            <div>202003121002</div>
+            <div>标题Test1</div>
+            <div>2020-02-10</div>
+            <div>camel7ues</div>
+            <div>尚湖镇</div>
+          </div>
+          <div class="swiper-slide">
+            <div>202003121002</div>
+            <div>标题Test1</div>
+            <div>2020-02-10</div>
+            <div>camel7ues</div>
+            <div>尚湖镇</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="center">
+      <div class="bar-h-echarts">
+        <div id="bar-h-echarts" class="tip" style="width: 358px; height: 236px;"></div>
+      </div>
+      <div class="pie-more-ehcart">
+        <div class="tip" style="width: 358px; height: 256px;">
+          <div id="pie-more-ehcart" style="width: 358px; height: 236px;"></div>
+        </div>
+      </div>
+    </div>
+    <div class="right">
+      <div id="line-small-echart" class="tip" style="width: 350px; height: 236px;"></div>
+    </div>
+  </div>
+</div>
+
+<!-- footer -->
+<footer>
+  <div class="footer-body">
+    © 2009-2019 Aliyun.com 版权所有 ICP证：浙B2-20080101 浙公网安备 33010602009975号
+  </div>
+</footer>
+
+
+<script src="./swiper/jquery-1.10.1.min.js"></script>
+<script src="./swiper/swiper.min.js"></script>
+
+
+
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!--<script src="https://cdn.staticfile.org/waterfall.js/1.1.0/waterfall.min.js"></script>-->
+
+</body>
+</html>
