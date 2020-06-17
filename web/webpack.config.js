@@ -98,7 +98,16 @@ module.exports = {
           use: ['css-loader', 'postcss-loader', 'less-loader'],
           publicPath: '../'
         })
-      }
+      },
+      {
+        exclude: NODE_PATH,
+        test: /\.scss$/i,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'postcss-loader', 'sass-loader'],
+          publicPath: '../'
+        })
+      },
     ]
   },
   devServer: {

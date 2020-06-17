@@ -1,5 +1,5 @@
-import '../less/map.less'
-// import './china-map'
+// import '../less/map.less'
+import '../scss/map.scss'
 
 const color = ['#73C7C1', '#f7e02c', '#d88c26', '#2E6FCB'];
 const titleTextStyle = {

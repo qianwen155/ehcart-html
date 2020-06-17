@@ -1,5 +1,5 @@
-import '../less/index.less'
-
+// import '../less/index.less'
+import '../scss/index.scss'
 const color = ['#73C7C1', '#f7e02c', '#d88c26', '#2E6FCB'];
 const titleTextStyle = {
   color:'#326BBA',
