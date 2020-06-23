@@ -5,12 +5,12 @@
   <meta http-equiv="Content-Language" content="zh-cn"/>
   <meta name="renderer" content="webkit">
   <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
-  <title>广信区两违管理系统</title>
+  <title>佛山照明</title>
   <link rel="stylesheet" href="./css/index.css">
   <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<script src="./swiper/echarts.js"></script>
+
 <div class="body">
   <header>
     <div class="header-body">
@@ -28,34 +28,114 @@
 
   <!--content-->
   <div class="search">
-    <div class="search_input"></div>
-    <div class="search_btn"></div>
+    <div class="search_select">
+      <div class="dropdown select">
+        <div id="dropdownMenu1" class="select-value" data-toggle="dropdown">
+          Java
+          <img class="search_arrow" src="./image/arrow_gery.svg">
+        </div>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+          <li role="presentation">
+            <a role="menuitem" tabindex="-1">Java</a>
+          </li>
+          <li role="presentation">
+            <a role="menuitem" tabindex="-1">数据挖掘</a>
+          </li>
+          <li role="presentation">
+            <a role="menuitem" tabindex="-1">数据通信/网络</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="search_btn">
+      <img class="search_icon" src="./image/check.svg">
+      <span>一键检测</span>
+      <div class="dropdown select-type">
+        <div id="dropdownMenu2" style="height: 70px" data-toggle="dropdown">
+          <img class="search_arrow" src="./image/arrow.svg">
+        </div>
+        <ul class="dropdown-menu pull-right" style="right: -20px;" role="menu" aria-labelledby="dropdownMenu2">
+          <li role="presentation">
+            <a role="menuitem" tabindex="-1">一键检测</a>
+          </li>
+          <li role="presentation">
+            <a role="menuitem" tabindex="-1">设备诊断</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="myModal" style="display: flex" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="loadEffect-body">
+      <div class="loadEffect">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="load-text">正在检测中，请耐心等待</div>
+    </div>
   </div>
 
   <!--content-->
   <div class="content">
+    <div class="left-top">
+      <div class="left-line"></div>
+      Product Diagnosis 产品诊断
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-title">设备诊断</div>
+        <div class="step-num"><span>1</span></div>
+      </div>
+      <div class="step">
+        <div class="step-title">更新基础值</div>
+        <div class="step-num"><span>2</span></div>
+      </div>
+      <div class="step">
+        <div class="step-title">设备检测</div>
+        <div class="step-num">
+          <span>3</span>
+        </div>
+      </div>
+    </div>
+    <div class="line"></div>
+    <div class="result">
+      <div class="result-title">诊断结果</div>
+      <div class="result-line"></div>
+      <div class="result-block">
+        <div class="result-status">
+          <span class="gery">产品状态：</span>
+          <img src="./image/status_green.svg">
+          <span class="green">通过-Pass</span>
+          <img src="./image/status_red.svg">
+          <span class="red">失败-Fail</span>
+        </div>
+        <div class="result-desc">
+          <div class="gery">产品说明：</div>
+          <div class="description">
+            1.该场频返回的是罚款决定书法撒开绿灯飞机昆仑山搭街坊方式登录附近的是否就是<br/>
+            2.分电视剧看风景附件是打开了房间看电视了附近的深刻理解<br/>
+            3.副书记打开龙卷风附件是打开房间看撒
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 
-
-  <!-- footer -->
-  <footer>
-    <div class="footer-body">
-      © 2009-2019 Aliyun.com 版权所有 ICP证：浙B2-20080101 浙公网安备 33010602009975号
-    </div>
-  </footer>
 </div>
 
-
-
-<script src="./swiper/jquery-1.10.1.min.js"></script>
-<script src="./swiper/swiper.min.js"></script>
-<script src="./js/common.js"></script>
-
-
-
-<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script src="./js/jquery-1.10.1.min.js"></script>
 <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<!--<script src="https://cdn.staticfile.org/waterfall.js/1.1.0/waterfall.min.js"></script>-->
+<script>
+  // $('#myModal').modal('show');
+</script>
 
 </body>
 </html>
