@@ -31,7 +31,6 @@ let entry = {
 //页面
 let pages = [
   'index',
-  'map'
 ]
 
 for (const index in pages) {

@@ -1,0 +1,46 @@
+a {
+  color: inherit;
+}
+body {
+  background: url("../image/bg.png") no-repeat;
+}
+header {
+  padding: 0 26px 0 53px;
+  background: url("../image/bar_bg.png") no-repeat;
+}
+.header-body {
+  display: flex;
+  height: 75px;
+  align-items: center;
+  justify-content: space-between;
+}
+.header-logo {
+  width: 142px;
+  height: 31px;
+}
+.header-right {
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+  color: #ffffff;
+}
+.header-right img {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+.title {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+.title img {
+  width: 71px;
+  height: 126px;
+}
+.title-name {
+  position: absolute;
+  top: 71px;
+}
