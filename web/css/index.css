@@ -43,4 +43,24 @@ header {
 .title-name {
   position: absolute;
   top: 71px;
+  color: #1e79f4;
+  font-size: 30px;
+  font-weight: bold;
+}
+.search {
+  width: 600px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+}
+.search_input {
+  background: #ffffff;
+  width: 534px;
+  border-radius: 4px 0 0 4px;
+}
+.search_btn {
+  width: 166px;
+  background: #1e79f4;
+  border-radius: 0 4px 4px 0;
 }
